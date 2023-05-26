@@ -226,15 +226,19 @@ def run_expt_con(data, loss_name, cons_name, eps, expt_param, solver_param, file
 
     return avg_loss, avg_cons, avg_runtime
 
-expt_param = {'training_frac': 2.0/3.0, 'num_trials': 5, 'verbosity': True, 'num_ticks': 6, "is_protected": True}
-solver_param = {'eta_list': [0.01,0.1,1,10], 'num_inner_iter': 8, 'num_outer_iter': 80}
+# expt_param = {'training_frac': 2.0/3.0, 'num_trials': 5, 'verbosity': True, 'num_ticks': 6, "is_protected": True}
+# solver_param = {'eta_list': [0.01,0.1,1,10], 'num_inner_iter': 8, 'num_outer_iter': 80}
+
+expt_param = {'training_frac': 2.0/3.0, 'num_trials': 3, 'verbosity': True, 'num_ticks': 6, "is_protected": True}
+solver_param = {'eta_list': [0.01,0.1,1,10], 'num_inner_iter': 3, 'num_outer_iter': 20}
 
 
-run_expt(loss_name = "fmeasure", cons_name="dp", data_name="preprocessed_german", \
+run_expt(loss_name = "fmeasure", cons_name="dp", data_name="german_new_new", \
          expt_param = expt_param, solver_param = solver_param, eps = 0.1)
+    
 
-run_expt(loss_name = "fmeasure", cons_name="dp", data_name="new_compas", \
-         expt_param = expt_param, solver_param = solver_param, eps = 0.1)
+#run_expt(loss_name = "fmeasure", cons_name="dp", data_name="new_compas", \
+#         expt_param = expt_param, solver_param = solver_param, eps = 0.1)
 
-run_expt(loss_name = "fmeasure", cons_name="dp", data_name="new_binned_adult", \
-        expt_param = expt_param, solver_param = solver_param, eps = 0.1)
+#run_expt(loss_name = "fmeasure", cons_name="dp", data_name="new_binned_adult", \
+#       expt_param = expt_param, solver_param = solver_param, eps = 0.1)

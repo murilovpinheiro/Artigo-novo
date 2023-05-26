@@ -1,0 +1,12 @@
+Valid No Change
+F1-score = 0.67852257
+Statistical parity difference = 0.37398668
+Valid with Change
+F1-score = 0.34550839
+Statistical parity difference = 0.04978418
+Test No Change
+F1-score = 0.67191601
+Statistical parity difference = 0.37997964
+Test with Change
+F1-score = 0.34162679
+Statistical parity difference = 0.04739297

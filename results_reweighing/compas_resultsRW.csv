@@ -1,0 +1,6 @@
+No Reweighing
+F1-score = 0.64816870
+Statistical parity difference = -0.19142681
+With Reweighing
+F1-score = 0.63777778
+Statistical parity difference = -0.04240958
