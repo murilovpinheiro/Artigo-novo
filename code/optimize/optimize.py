@@ -5,6 +5,13 @@ from classes.classifier import *
 from classes.newFraco import *
 from classes.metrics import *
 from time import *
+import os
+
+diretorio_atual = os.getcwd()
+diretorio_pai = os.path.dirname(diretorio_atual)
+path = os.path.abspath(diretorio_pai)
+
+# print("PATH: ", path)
 
 def choose_best_eta(loss_list, cons_list, eps):
     """
@@ -87,9 +94,9 @@ def run_expt(loss_name, cons_name, data_name, expt_param, solver_param, eps=1):
             print('Running COCO for optimizing ' + loss_name +
                   (' s.t. ' + cons_name + ' constraint ' if cons_name != '' else '')
                   + ' on ' + data_name + ' dataset\n')
-    file_name = ".//results_optimizer//" + data_name + '_' + str(eps) + '_results.csv'
+    file_name = path + "//results_optimizer//" + data_name + '_' + str(eps) + '_resultsOP.csv'
     # Load data set
-    data = np.loadtxt("./data/" + data_name + '.csv', delimiter=',', skiprows = 1)
+    data = np.loadtxt(path + "/data/" + data_name + '.csv', delimiter=',', skiprows = 1)
 
     # Run either constrained or unconstrained solver
     if cons_name != '':
@@ -228,17 +235,17 @@ def run_expt_con(data, loss_name, cons_name, eps, expt_param, solver_param, file
 
 # expt_param = {'training_frac': 2.0/3.0, 'num_trials': 5, 'verbosity': True, 'num_ticks': 6, "is_protected": True}
 # solver_param = {'eta_list': [0.01,0.1,1,10], 'num_inner_iter': 8, 'num_outer_iter': 80}
+def run():
+    expt_param = {'training_frac': 2.0/3.0, 'num_trials': 5, 'verbosity': True, 'num_ticks': 6, "is_protected": True}
+    solver_param = {'eta_list': [0.01,0.1,1,10], 'num_inner_iter': 8, 'num_outer_iter': 60}
 
-expt_param = {'training_frac': 2.0/3.0, 'num_trials': 3, 'verbosity': True, 'num_ticks': 6, "is_protected": True}
-solver_param = {'eta_list': [0.01,0.1,1,10], 'num_inner_iter': 3, 'num_outer_iter': 20}
 
+    run_expt(loss_name = "fmeasure", cons_name="dp", data_name="german", \
+            expt_param = expt_param, solver_param = solver_param, eps = 0.1)
+        
 
-run_expt(loss_name = "fmeasure", cons_name="dp", data_name="german_new_new", \
-         expt_param = expt_param, solver_param = solver_param, eps = 0.1)
-    
+    run_expt(loss_name = "fmeasure", cons_name="dp", data_name="compas", \
+            expt_param = expt_param, solver_param = solver_param, eps = 0.1)
 
-#run_expt(loss_name = "fmeasure", cons_name="dp", data_name="new_compas", \
-#         expt_param = expt_param, solver_param = solver_param, eps = 0.1)
-
-#run_expt(loss_name = "fmeasure", cons_name="dp", data_name="new_binned_adult", \
-#       expt_param = expt_param, solver_param = solver_param, eps = 0.1)
+    run_expt(loss_name = "fmeasure", cons_name="dp", data_name="adult", \
+        expt_param = expt_param, solver_param = solver_param, eps = 0.1)
