@@ -64,7 +64,7 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     metric_orig_train = BinaryLabelDatasetMetric(dataset_orig_train, 
                                                 unprivileged_groups=unprivileged_groups,
                                                 privileged_groups=privileged_groups)
-    print("Difference in mean outcomes between unprivileged and privileged groups = %f" % metric_orig_train.mean_difference())
+
     RW = Reweighing(unprivileged_groups=unprivileged_groups,
                 privileged_groups=privileged_groups)
     RW.fit(dataset_orig_train)
@@ -72,8 +72,6 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     metric_transf_train = BinaryLabelDatasetMetric(dataset_transf_train, 
                                             unprivileged_groups=unprivileged_groups,
                                             privileged_groups=privileged_groups)
-
-    print("Difference in mean outcomes between unprivileged and privileged groups = %f" % metric_transf_train.mean_difference())
 
     # Logistic regression classifier and predictions
     scale_orig = StandardScaler()
@@ -122,18 +120,13 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     best_ind = np.where(ba_arr == np.max(ba_arr))[0][0]
     best_class_thresh = class_thresh_arr[best_ind]
 
-
-    print("Best balanced accuracy (no reweighing) = %.4f" % np.max(ba_arr))
-    print("Optimal classification threshold (no reweighing) = %.4f" % best_class_thresh)
-
     bal_acc_arr_orig = []
     disp_imp_arr_orig = []
     avg_odds_diff_arr_orig = []
 
-    print("Classification threshold used = %.4f" % best_class_thresh)
     with open(file_name, 'a') as files:
         print('No Reweighing', file = files)
-    for thresh in tqdm(class_thresh_arr):
+    for thresh in (class_thresh_arr):
         
         if thresh == best_class_thresh:
             disp = True
@@ -165,11 +158,9 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     bal_acc_arr_transf = []
     disp_imp_arr_transf = []
     avg_odds_diff_arr_transf = []
-
-    print("Classification threshold used = %.4f" % best_class_thresh)
     with open(file_name, 'a') as files:
         print('With Reweighing', file = files)
-    for thresh in tqdm(class_thresh_arr):
+    for thresh in (class_thresh_arr):
         
         if thresh == best_class_thresh:
             disp = True

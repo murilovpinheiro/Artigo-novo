@@ -11,7 +11,6 @@ import warnings
 
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import MinMaxScaler
@@ -30,7 +29,6 @@ path = os.path.abspath(diretorio_atual)
 # print(path)
 
 def run(df, df_name, privileged_groups, unprivileged_groups, size, label_name, protected, features_to_keep):
-    print(df.columns)
     df = df[features_to_keep]
     ad = BinaryLabelDataset(favorable_label = 1., unfavorable_label = 0., df = df, label_names = [label_name], 
                             protected_attribute_names = [protected], unprivileged_protected_attributes = 0., privileged_protected_attributes = 1.,)
@@ -38,8 +36,7 @@ def run(df, df_name, privileged_groups, unprivileged_groups, size, label_name, p
     scaler = MinMaxScaler(copy=False)
 
     # teste e treino vão ser de 70 e 30
-    split =int(size * 0.3)
-    print(split)
+    split = int(size * 0.3)
     test, train = ad.split([split]) # ? -> não sei
     train.features = scaler.fit_transform(train.features)
     test.features = scaler.fit_transform(test.features)
@@ -49,7 +46,8 @@ def run(df, df_name, privileged_groups, unprivileged_groups, size, label_name, p
     DIs = []
     SPD = []
     F1s = []
-    for level in tqdm(np.linspace(0., 1., 11)):
+    
+    for level in (np.linspace(0., 1., 11)):
         di = DisparateImpactRemover(repair_level=level)
         train_repd = di.fit_transform(train)
         test_repd = di.fit_transform(test)

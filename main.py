@@ -23,44 +23,55 @@ df_name = input() # "adult", "german", "compas"
 
 if df_name == "adult":
 #   dataset_orig = AdultDataset()
+    df = pd.read_csv('.//data//adult.csv')
+
     protected = "gender"
+    label_name = "income"
+    
     privileged_groups = [{'gender': 1}]
     unprivileged_groups = [{'gender': 0}]
-    df = pd.read_csv('.//data//adult.csv')
-    label_name = "income"
-    features_to_keep=['income', 'gender', 'age', 'education-num', 'capital-gain', 'capital-loss', 'hours-per-week']
-    dataset_orig = BinaryLabelDataset(favorable_label = 1., unfavorable_label = 0., df = df, label_names = ['income'],
-                                       protected_attribute_names = ['gender'], unprivileged_protected_attributes = 0., privileged_protected_attributes = 1.)
+    
+    features_to_keep=['income', 'gender', 'age', 'educational-num', 'capital-gain', 'capital-loss', 'hours-per-week']
     
 elif df_name == "german":
 #   dataset_orig = GermanDataset()
+    df = pd.read_csv('.//data//german.csv')
+
     protected = "sex"
+    label_name = "credit"
+
     privileged_groups = [{'sex': 1}]
     unprivileged_groups = [{'sex': 0}]
-    df = pd.read_csv('.//data//german.csv')
-    label_name = "credit"
+    
     features_to_keep=['credit',"sex","month","credit_amount", "investment_as_income_percentage", "age"]
-    dataset_orig = BinaryLabelDataset(favorable_label = 1., unfavorable_label = 0., df = df, label_names = ['credit'],
-                                       protected_attribute_names = ['sex'], unprivileged_protected_attributes = 0., privileged_protected_attributes = 1.)
     
 elif df_name == "compas":
 #   dataset_orig = CompasDataset()
+    df = pd.read_csv('.//data//compas.csv')
+
+    label_name = "Two_yr_Recidivism"
     protected = "Race"
+
     privileged_groups = [{'Race': 1}]
     unprivileged_groups = [{'Race': 0}]
-    df = pd.read_csv('.//data//compas.csv')
-    label_name = "Two_yr_Recidivism"
+
     features_to_keep=['Two_yr_Recidivism',"Race","Number_of_Priors","score_factor"]
-    dataset_orig = BinaryLabelDataset(favorable_label = 1., unfavorable_label = 0., df = df, label_names = ["Two_yr_Recidivism"],
-                                           protected_attribute_names= ["Race"], unprivileged_protected_attributes = 0., privileged_protected_attributes = 1.)
 
 print("COMEÇOU: ")
-dr.run(df, df_name, privileged_groups, unprivileged_groups, df.shape[0], label_name, protected, features_to_keep)
 
-rc.run(dataset_orig, df_name, privileged_groups, unprivileged_groups)
+for i in tqdm([0, 1, 2, 3, 4]):
+    df = df.sample(frac=1)
 
-rw.run(dataset_orig, df_name, privileged_groups, unprivileged_groups)
+    dataset_orig = BinaryLabelDataset(favorable_label = 1., unfavorable_label = 0., df = df, label_names = [label_name],
+                                      protected_attribute_names= [protected], privileged_protected_attributes = privileged_groups[0][protected], 
+                                      unprivileged_protected_attributes = unprivileged_groups[0][protected])
+    
+    dr.run(df, df_name, privileged_groups, unprivileged_groups, df.shape[0], label_name, protected, features_to_keep)
 
-pr.run(dataset_orig, df_name, privileged_groups, unprivileged_groups)
+    rc.run(dataset_orig, df_name, privileged_groups, unprivileged_groups)
+
+    rw.run(dataset_orig, df_name, privileged_groups, unprivileged_groups)
+
+    pr.run(dataset_orig, df_name, privileged_groups, unprivileged_groups)
 
 print("TERMINOU.")

@@ -3,7 +3,6 @@ import sys
 sys.path.append("../")
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
 from warnings import warn
 
 from aif360.datasets import BinaryLabelDataset
@@ -120,9 +119,6 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     best_ind = np.where(ba_arr == np.max(ba_arr))[0][0]
     best_class_thresh = class_thresh_arr[best_ind]
 
-    print("Best balanced accuracy (no fairness constraints) = %.4f" % np.max(ba_arr))
-    print("Optimal classification threshold (no fairness constraints) = %.4f" % best_class_thresh)
-
     ROC = RejectOptionClassification(unprivileged_groups=unprivileged_groups, 
                                     privileged_groups=privileged_groups, 
                                     low_class_thresh=0.01, high_class_thresh=0.99,
@@ -137,16 +133,16 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     dataset_orig_valid_pred.labels[fav_inds] = dataset_orig_valid_pred.favorable_label
     dataset_orig_valid_pred.labels[~fav_inds] = dataset_orig_valid_pred.unfavorable_label
 
-    with open(file_name, 'a') as files:
-        print('Valid No Change', file = files)
+    # with open(file_name, 'a') as files:
+    #     print('Valid No Change', file = files)
 
     metric_valid_bef = compute_metrics(dataset_orig_valid, dataset_orig_valid_pred, 
                     unprivileged_groups, privileged_groups, file_name) # RL normal
 
     # Transform the validation set
     dataset_transf_valid_pred = ROC.predict(dataset_orig_valid_pred)
-    with open(file_name, 'a') as files:
-        print('Valid with Change', file = files)
+    # with open(file_name, 'a') as files:
+    #     print('Valid with Change', file = files)
     metric_valid_aft = compute_metrics(dataset_orig_valid, dataset_transf_valid_pred, 
                     unprivileged_groups, privileged_groups, file_name) # RL com ROC
 

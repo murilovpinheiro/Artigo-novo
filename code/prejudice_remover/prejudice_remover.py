@@ -61,7 +61,6 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     sens_ind = 0
 
     sens_attr = dataset_orig.protected_attribute_names[sens_ind]
-    print(sens_attr)
 
     # Divisão em treinamento, teste e validação
     dataset_train, dataset_orig_vt = dataset_orig.split([0.7], shuffle=True)

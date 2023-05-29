@@ -1,7 +1,30 @@
 No Reweighing
-F1-score = 0.77173913
-Statistical parity difference = -0.00710702
-
+F1-score = 0.80751174
+Statistical parity difference = -0.10493311
 With Reweighing
-F1-score = 0.73563218
-Statistical parity difference = 0.12040134
+F1-score = 0.80188679
+Statistical parity difference = -0.06396321
+No Reweighing
+F1-score = 0.63157895
+Statistical parity difference = -0.00693001
+With Reweighing
+F1-score = 0.65921788
+Statistical parity difference = 0.02494802
+No Reweighing
+F1-score = 0.78494624
+Statistical parity difference = -0.13492063
+With Reweighing
+F1-score = 0.79365079
+Statistical parity difference = 0.00264550
+No Reweighing
+F1-score = 0.80198020
+Statistical parity difference = -0.18730159
+With Reweighing
+F1-score = 0.82352941
+Statistical parity difference = -0.07936508
+No Reweighing
+F1-score = 0.75935829
+Statistical parity difference = -0.16518122
+With Reweighing
+F1-score = 0.73333333
+Statistical parity difference = -0.09447415

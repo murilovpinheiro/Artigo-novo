@@ -1,8 +1,45 @@
-F1-Score: 0.6139169472502806
-Statistical Parity: 0.0
-
-F1-Score: 0.6139169472502806
-Statistical Parity: 0.0
-
-F1-Score: 0.6139169472502806
-Statistical Parity: 0.0
+eta:  0.1
+F1-Score: 0.6378269617706238
+Statistical Parity: 0.16637530336061868
+eta:  1
+F1-Score: 0.6378269617706238
+Statistical Parity: 0.161614084159434
+eta:  25
+F1-Score: 0.6317829457364341
+Statistical Parity: -0.05638394142569203
+eta:  0.1
+F1-Score: 0.6798748696558915
+Statistical Parity: 0.22204240168312023
+eta:  1
+F1-Score: 0.6791666666666667
+Statistical Parity: 0.21904838970707236
+eta:  25
+F1-Score: 0.6659707724425887
+Statistical Parity: 0.13137239035442633
+eta:  0.1
+F1-Score: 0.6839378238341968
+Statistical Parity: 0.22393862155969207
+eta:  1
+F1-Score: 0.6942307692307692
+Statistical Parity: 0.18102005612625838
+eta:  25
+F1-Score: 0.6538796861377507
+Statistical Parity: -0.11416801833114487
+eta:  0.1
+F1-Score: 0.6770186335403727
+Statistical Parity: 0.23231309074682566
+eta:  1
+F1-Score: 0.6819085487077536
+Statistical Parity: 0.21513326031398322
+eta:  25
+F1-Score: 0.6659574468085105
+Statistical Parity: 0.21201979635714574
+eta:  0.1
+F1-Score: 0.6903846153846154
+Statistical Parity: 0.14162689354637892
+eta:  1
+F1-Score: 0.6883988494726749
+Statistical Parity: 0.1465449263332642
+eta:  25
+F1-Score: 0.6779059449866903
+Statistical Parity: -0.08565054990661958

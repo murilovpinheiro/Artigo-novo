@@ -242,8 +242,7 @@ def run():
 
     run_expt(loss_name = "fmeasure", cons_name="dp", data_name="german", \
             expt_param = expt_param, solver_param = solver_param, eps = 0.1)
-        
-
+    
     run_expt(loss_name = "fmeasure", cons_name="dp", data_name="compas", \
             expt_param = expt_param, solver_param = solver_param, eps = 0.1)
 
