@@ -137,14 +137,14 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     #     print('Valid No Change', file = files)
 
     metric_valid_bef = compute_metrics(dataset_orig_valid, dataset_orig_valid_pred, 
-                    unprivileged_groups, privileged_groups, file_name) # RL normal
+                    unprivileged_groups, privileged_groups, file_name, False) # RL normal
 
     # Transform the validation set
     dataset_transf_valid_pred = ROC.predict(dataset_orig_valid_pred)
     # with open(file_name, 'a') as files:
     #     print('Valid with Change', file = files)
     metric_valid_aft = compute_metrics(dataset_orig_valid, dataset_transf_valid_pred, 
-                    unprivileged_groups, privileged_groups, file_name) # RL com ROC
+                    unprivileged_groups, privileged_groups, file_name, False) # RL com ROC
 
     # Metrics for the test set
     fav_inds = dataset_orig_test_pred.scores > best_class_thresh
@@ -153,10 +153,10 @@ def run(dataset_orig, df_name, privileged_groups, unprivileged_groups):
     with open(file_name, 'a') as files:
         print('Test No Change', file = files)
     metric_test_bef = compute_metrics(dataset_orig_test, dataset_orig_test_pred, 
-                    unprivileged_groups, privileged_groups, file_name) # RL teste
+                    unprivileged_groups, privileged_groups, file_name, True) # RL teste
 
     dataset_transf_test_pred = ROC.predict(dataset_orig_test_pred)
     with open(file_name, 'a') as files:
         print('Test with Change', file = files)
     metric_test_aft = compute_metrics(dataset_orig_test, dataset_transf_test_pred, 
-                    unprivileged_groups, privileged_groups, file_name) # RL teste com ROC
+                    unprivileged_groups, privileged_groups, file_name, True) # RL teste com ROC

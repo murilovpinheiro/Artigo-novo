@@ -1,30 +1,30 @@
-No Reweighing
-F1-score = 0.69210207
-Statistical parity difference = 0.33176527
-With Reweighing
-F1-score = 0.68414482
-Statistical parity difference = 0.18689921
-No Reweighing
-F1-score = 0.68122271
-Statistical parity difference = 0.35252858
-With Reweighing
-F1-score = 0.68001863
-Statistical parity difference = 0.21020775
-No Reweighing
-F1-score = 0.68765460
-Statistical parity difference = 0.35961021
-With Reweighing
-F1-score = 0.68468045
-Statistical parity difference = 0.19266923
-No Reweighing
-F1-score = 0.68688799
-Statistical parity difference = 0.33656558
-With Reweighing
-F1-score = 0.69190535
-Statistical parity difference = 0.18086166
-No Reweighing
-F1-score = 0.68259224
-Statistical parity difference = 0.34775894
-With Reweighing
-F1-score = 0.67930029
-Statistical parity difference = 0.19219420
+No Reweighing :
+F1-score : 0.69210207
+Statistical parity difference : 0.33176527
+With Reweighing :
+F1-score : 0.68414482
+Statistical parity difference : 0.18689921
+No Reweighing :
+F1-score : 0.68122271
+Statistical parity difference : 0.35252858
+With Reweighing :
+F1-score : 0.68001863
+Statistical parity difference : 0.21020775
+No Reweighing :
+F1-score : 0.68765460
+Statistical parity difference : 0.35961021
+With Reweighing :
+F1-score : 0.68468045
+Statistical parity difference : 0.19266923
+No Reweighing :
+F1-score : 0.68688799
+Statistical parity difference : 0.33656558
+With Reweighing :
+F1-score : 0.69190535
+Statistical parity difference : 0.18086166
+No Reweighing :
+F1-score : 0.68259224
+Statistical parity difference : 0.34775894
+With Reweighing :
+F1-score : 0.67930029
+Statistical parity difference : 0.19219420

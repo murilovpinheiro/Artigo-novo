@@ -1,50 +1,30 @@
-F1-score = 0.60026212
-Statistical parity difference = 0.16213107
-F1-score = 0.11464968
-Statistical parity difference = 0.04560165
-Test No Change
-F1-score = 0.59757739
-Statistical parity difference = 0.22949172
-Test with Change
-F1-score = 0.09691630
-Statistical parity difference = 0.01599722
-F1-score = 0.64133017
-Statistical parity difference = 0.31033810
-F1-score = 0.61984733
-Statistical parity difference = 0.03875601
-Test No Change
-F1-score = 0.64914286
-Statistical parity difference = 0.27137303
-Test with Change
-F1-score = 0.63982103
-Statistical parity difference = 0.02600345
-F1-score = 0.69574468
-Statistical parity difference = 0.19214490
-F1-score = 0.64705882
-Statistical parity difference = 0.04034031
-Test No Change
-F1-score = 0.66805411
-Statistical parity difference = 0.22049818
-Test with Change
-F1-score = 0.65666930
-Statistical parity difference = 0.06285170
-F1-score = 0.64362336
-Statistical parity difference = 0.18707190
-F1-score = 0.63013699
-Statistical parity difference = 0.04776260
-Test No Change
-F1-score = 0.67035398
-Statistical parity difference = 0.20130413
-Test with Change
-F1-score = 0.66613419
-Statistical parity difference = 0.10209649
-F1-score = 0.65253239
-Statistical parity difference = 0.21605220
-F1-score = 0.13107822
-Statistical parity difference = 0.04863810
-Test No Change
-F1-score = 0.64155529
-Statistical parity difference = 0.14988286
-Test with Change
-F1-score = 0.11160714
-Statistical parity difference = 0.03547283
+Test No Change :
+F1-score : 0.59757739
+Statistical parity difference : 0.22949172
+Test with Change :
+F1-score : 0.09691630
+Statistical parity difference : 0.01599722
+Test No Change :
+F1-score : 0.64914286
+Statistical parity difference : 0.27137303
+Test with Change :
+F1-score : 0.63982103
+Statistical parity difference : 0.02600345
+Test No Change :
+F1-score : 0.66805411
+Statistical parity difference : 0.22049818
+Test with Change :
+F1-score : 0.65666930
+Statistical parity difference : 0.06285170
+Test No Change :
+F1-score : 0.67035398
+Statistical parity difference : 0.20130413
+Test with Change :
+F1-score : 0.66613419
+Statistical parity difference : 0.10209649
+Test No Change :
+F1-score : 0.64155529
+Statistical parity difference : 0.14988286
+Test with Change :
+F1-score : 0.11160714
+Statistical parity difference : 0.03547283
