@@ -7,7 +7,9 @@ def normalize_metric(value, min_value, max_value):
 # Função para calcular a média ponderada considerando igualmente as métricas normalizadas
 def weighted_average(metric_A, metric_B, min_A, max_A, min_B, max_B):
     normalized_A = normalize_metric(metric_A, min_A, max_A)
-    normalized_B = normalize_metric(1 - metric_B, min_B, max_B)
+    print(normalized_A)
+    normalized_B = normalize_metric(metric_B, min_B, max_B)
+    print(normalized_B)
     return 0.5 * normalized_A + 0.5 * normalized_B
 # Ler o dataset
 dataset = pd.read_csv('final_results.csv')
@@ -15,7 +17,7 @@ dataset = pd.read_csv('final_results.csv')
 # Extrair as colunas das métricas A e B do dataset
 
 metric_A_values = dataset['F1-Score']
-metric_B_values = dataset['Statistical Parity'].apply(abs)
+metric_B_values = 1 - dataset['Statistical Parity'].apply(abs)
 min_A = metric_A_values.min()
 max_A = metric_A_values.max()
 min_B = metric_B_values.min()

@@ -10,7 +10,6 @@ german_op = pd.read_csv("./results/results_optimizer/german_resultsOP.csv", deli
 compas_op = pd.read_csv("./results/results_optimizer/compas_resultsOP.csv", delimiter = "/", header=None) # 
 
 #OP BEM FORMATADO
-
 adult_pr = pd.read_csv("./results/results_prejudice_rem/adult_resultsPR.csv", delimiter = ":", header=None)
 german_pr = pd.read_csv("./results/results_prejudice_rem/german_resultsPR.csv", delimiter = ":", header=None)
 compas_pr = pd.read_csv("./results/results_prejudice_rem/compas_resultsPR.csv", delimiter = ":", header=None)
